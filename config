@@ -159,3 +159,5 @@ exec --no-startup-id xautolock -time 10 -locker ~/.i3/screenlock &
 bindsym $mod+Shift+c kill
 bindsym Menu exec xboomx
 bindsym Ctrl+Menu exec gvim
+bindsym $mod+l move workspace to output left
+bindsym $mod+u move workspace to output right
