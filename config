@@ -161,3 +161,22 @@ bindsym Menu exec xboomx
 bindsym Ctrl+Menu exec gvim
 bindsym $mod+l move workspace to output left
 bindsym $mod+u move workspace to output right
+bindsym XF86Favorites exec mate-screensaver-command --lock # Lock Screen
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 2 +10% 
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 2 -10%
+bindsym XF86AudioMute exec pactl set-sink-mute 2 toggle
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Touchpad controls
+bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
