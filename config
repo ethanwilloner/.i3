@@ -18,7 +18,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal fish						
-bindsym $mod+Return exec mate-terminal -e fish
+bindsym $mod+Return exec rxvt -e fish
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -173,9 +173,10 @@ bindsym $mod+u move workspace to output right
 bindsym XF86Favorites exec mate-screensaver-command --lock # Lock Screen
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +10% 
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -10%
-bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
+# Change audio sink from 1 to 0 for on laptop.
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10% 
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
