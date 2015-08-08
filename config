@@ -140,18 +140,21 @@ bar {
 }
 
 ## Variables ##
-set $lock "i3lock -d -f -I 15 -c 000000"
+set $autolock "i3lock -d -f -I 15 -c 000000"
+set $lock i3lock -d -f -I 15 -c 000000
+
 set $suspend systemctl suspend
+set $hibernate systemctl hibernate
 
 ## Startup commands ##
 exec --no-startup-id nm-applet
 exec --no-startup-id xset b off
 exec --no-startup-id setxbmap -v us -variant colemak
 exec --no-startup-id parcellite
-exec --no-startup-id mate-power-manager
-exec --no-startup-id mate-screensaver
+#exec --no-startup-id mate-power-manager
 exec --no-startup-id volti
-exec --no-startup-id xautolock -time 10 -locker $lock
+exec --no-startup-id xautolock -time 10 -locker $autolock
+exec --no-startup-id xss-lock -- $lock
 exec --no-startup-id iceweasel
 exec --no-startup-id pidgin
 exec --no-startup-id pulseaudio
@@ -167,9 +170,13 @@ bindsym $mod+Shift+c kill
 bindsym Menu exec xboomx
 bindsym $mod+l move workspace to output left
 bindsym $mod+u move workspace to output right
-bindsym XF86Favorites exec $lock # Lock Screen
-bindsym XF86ScreenSaver exec $lock # Lock button
-bindsym XF86Sleep exec $lock && $suspend
+
+# Lock Screen buttons
+bindsym XF86Favorites exec $lock
+bindsym XF86ScreenSaver exec $lock
+
+# Suspend
+bindsym XF86Sleep exec --no-startup-id $lock && systemctl suspend
 
 # Pulse Audio controls
 # Change audio sink from 1 to 0 for on laptop.
