@@ -1,5 +1,0 @@
-#!/bin/bash
-mate-screensaver-command --lock
-
-# Found at
-# http://darknet.co.za/blog/?page=posts.2012&post=2012-01-i3locker.md
