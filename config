@@ -175,6 +175,9 @@ bindsym $mod+u move workspace to output right
 bindsym $mod+k exec rofi -show run
 bindsym $mod+m exec rofi -show ssh
 
+# Open file manager
+bindsym Menu exec pcmanfm
+
 # Lock Screen buttons
 bindsym XF86Favorites exec $lock
 bindsym XF86ScreenSaver exec $lock
