@@ -187,8 +187,8 @@ bindsym XF86Sleep exec --no-startup-id $lock && systemctl suspend
 
 # Pulse Audio controls
 # Change audio sink from 1 to 0 for on laptop.
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +20% 
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -20%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10% 
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 # Sreen brightness controls
