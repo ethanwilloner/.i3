@@ -23,9 +23,6 @@ bindsym $mod+Return exec rxvt -e fish
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start xboomx (a dmenu wrapper)	
-bindsym $mod+s exec xboomx
-
 # change focus
 bindsym $mod+n focus left
 bindsym $mod+e focus down
@@ -156,15 +153,15 @@ exec --no-startup-id xautolock -time 10 -locker $autolock
 exec --no-startup-id xss-lock -- $lock
 exec --no-startup-id firefox
 exec --no-startup-id pidgin
-exec --no-startup-id pulseaudio
+exec --no-startup-id pulseaudio --start
 exec --no-startup-id icedove
 exec --no-startup-id redshift-gtk
 exec --no-startup-id xrdb -load ~/.Xresources
 
 # Enables edge scrolling on my laptop
-exec --no-startup-id xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 1 1 1
+#exec --no-startup-id xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 1 1 1
 # Enables left handed for my Razer mouse
-# exec --no-startup-id xinput set-button-map "Razer  Razer Abyssus" 3 2 1
+exec --no-startup-id xinput set-button-map "Razer  Razer Abyssus" 3 2 1
 
 ## Custom bindings ##
 bindsym $mod+Shift+c kill
