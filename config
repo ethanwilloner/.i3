@@ -169,8 +169,8 @@ bindsym $mod+l move workspace to output left
 bindsym $mod+u move workspace to output right
 
 # rofi bindings
-bindsym $mod+k exec rofi -show run
-bindsym $mod+m exec rofi -show ssh
+bindsym $mod+k exec rofi -config ~/.Xresources -show run
+bindsym $mod+m exec rofi -config ~/.Xresources -show ssh
 
 # Open file manager
 bindsym Menu exec pcmanfm
