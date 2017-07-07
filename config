@@ -17,8 +17,7 @@ font pango:DejaVu Sans Mono 10
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal fish						
-bindsym $mod+Return exec rxvt -e fish
+bindsym $mod+Return exec urxvt -e fish
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -30,10 +29,10 @@ bindsym $mod+i focus up
 bindsym $mod+o focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+#bindsym $mod+Left focus left
+#bindsym $mod+Down focus down
+#bindsym $mod+Up focus up
+#bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+N move left
@@ -144,21 +143,25 @@ set $suspend systemctl suspend
 set $hibernate systemctl hibernate
 
 ## Startup commands ##
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1 
 exec --no-startup-id nm-applet
 exec --no-startup-id xset b off
-exec --no-startup-id setxbmap -v us -variant colemak
+exec --no-startup-id setxkbmap -v us -variant colemak
 exec --no-startup-id parcellite
 exec --no-startup-id volti
 exec --no-startup-id xautolock -time 10 -locker $autolock
 exec --no-startup-id xss-lock -- $lock
-exec --no-startup-id firefox
 exec --no-startup-id pulseaudio --start
-exec --no-startup-id icedove
+#exec --no-startup-id thunderbird
 exec --no-startup-id redshift-gtk
 exec --no-startup-id xrdb -load ~/.Xresources
+exec --no-startup-id xrandr --dpi 140
+exec --no-startup-id xset r rate 300 32 
 
 # Enables edge scrolling on my laptop
-exec --no-startup-id xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 1 1 1
+#exec --no-startup-id xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 1 1 1
+exec --no-startup-id xinput set-prop "DLL075B:01 06CB:76AF Touchpad" "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop "DLL075B:01 06CB:76AF Touchpad" "libinput Tapping Drag Enabled" 0
 # Enables left handed for my Razer mouse
 #exec --no-startup-id xinput set-button-map "Razer  Razer Abyssus" 3 2 1
 
@@ -168,8 +171,10 @@ bindsym $mod+l move workspace to output left
 bindsym $mod+u move workspace to output right
 
 # rofi bindings
-bindsym $mod+k exec rofi -config ~/.Xresources -show run
-bindsym $mod+m exec rofi -config ~/.Xresources -show ssh
+bindsym $mod+k exec rofi -config ~/.Xresources -kb-row-up Tab -show run
+bindsym $mod+m exec rofi -config ~/.Xresources -kb-row-up Tab -show ssh
+bindsym $mod+b exec rofi -config ~/.Xresources -kb-row-up Tab -show window
+#bindsym $mod+k exec dmenu_run
 
 # Open file manager
 bindsym Menu exec pcmanfm
@@ -177,14 +182,15 @@ bindsym Menu exec pcmanfm
 # Lock Screen buttons
 bindsym XF86Favorites exec $lock
 bindsym XF86ScreenSaver exec $lock
+bindsym $mod+Shift+l exec $lock
 
 # Suspend
 bindsym XF86Sleep exec --no-startup-id $lock && systemctl suspend
 
 # Pulse Audio controls
 # Change audio sink from 1 to 0 for on laptop.
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10% 
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 # Sreen brightness controls
@@ -196,3 +202,5 @@ bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+exec --no-startup-id xrandr --dpi 140
