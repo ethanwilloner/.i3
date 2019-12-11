@@ -17,7 +17,7 @@ font pango:DejaVu Sans Mono 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt256c -e fish
+bindsym $mod+Return exec urxvt -e fish
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -174,9 +174,9 @@ bindsym $mod+l move workspace to output left
 bindsym $mod+u move workspace to output right
 
 # rofi bindings
-bindsym $mod+k exec rofi -config ~/.Xresources -kb-row-up Tab -show run
-bindsym $mod+m exec rofi -config ~/.Xresources -kb-row-up Tab -show ssh
-bindsym $mod+b exec rofi -config ~/.Xresources -kb-row-up Tab -show window
+bindsym $mod+k exec rofi -config ~/.Xresources -show run
+bindsym $mod+m exec rofi -config ~/.Xresources -show ssh
+bindsym $mod+b exec rofi -config ~/.Xresources -show window
 #bindsym $mod+k exec dmenu_run
 
 # Open file manager
