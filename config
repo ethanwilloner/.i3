@@ -17,7 +17,7 @@ font pango:DejaVu Sans Mono 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt -e fish
+bindsym $mod+Return exec urxvt256c -e fish
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -191,10 +191,9 @@ bindsym $mod+Shift+l exec $lock
 bindsym XF86Sleep exec --no-startup-id $lock && systemctl suspend
 
 # Pulse Audio controls
-# Change audio sink from 1 to 0 for on laptop.
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Sreen brightness controls
 #bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
