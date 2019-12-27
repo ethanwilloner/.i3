@@ -144,9 +144,9 @@ set $suspend systemctl suspend
 set $hibernate systemctl hibernate
 
 ## Startup commands ##
-exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1 
-exec --no-startup-id gnome-keyring-daemon 
-exec --no-startup-id /usr/libexec/mate-settings-daemon
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/libexec/gsd-xsettings
+exec --no-startup-id gnome-keyring-daemon -r -d 
 exec --no-startup-id /usr/libexec/notification-daemon
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
@@ -161,8 +161,9 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id xrdb -load ~/.Xresources
 exec --no-startup-id xrandr --dpi 140
 exec --no-startup-id xset r rate 300 32 
-#exec --no-startup-id pulseaudio --start
+exec --no-startup-id pulseaudio --start
 exec --no-startup-id amixer -c 0 set 'Headphone Mic Boost',0 1
+exec --no-startup-id /home/ethan/.screenlayout/layout.sh
 
 exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Drag Enabled" 0
