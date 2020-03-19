@@ -33,6 +33,10 @@ bindsym $mod+i focus right
 #bindsym $mod+Down focus down
 #bindsym $mod+Up focus up
 #bindsym $mod+Right focus right
+bindsym $mod+Left move workspace to output left
+bindsym $mod+Right move workspace to output right
+bindsym $mod+Up move workspace to output up
+bindsym $mod+Down move workspace to output down
 
 # move focused window
 bindsym $mod+Shift+H move left
@@ -165,10 +169,10 @@ exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id amixer -c 0 set 'Headphone Mic Boost',0 1
 exec --no-startup-id /home/ethan/.screenlayout/layout.sh
 
-exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
-exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Drag Enabled" 0
-exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Disable While Typing Enabled" 1
-exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" .5
+exec --no-startup-id xinput set-prop "DLL075B:01 06CB:76AF Touchpad" "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop "DLL075B:01 06CB:76AF Touchpad" "libinput Tapping Drag Enabled" 0
+exec --no-startup-id xinput set-prop "DLL075B:01 06CB:76AF Touchpad" "libinput Disable While Typing Enabled" 1
+exec --no-startup-id xinput set-prop "DLL075B:01 06CB:76AF Touchpad" "libinput Accel Speed" .5
 
 ## Custom bindings ##
 bindsym $mod+Shift+c kill
