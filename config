@@ -18,6 +18,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec urxvt256c -e fish
+#bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -136,13 +137,13 @@ bindsym $mod+p mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    output primary
+    #output primary
     status_command i3status
 }
 
 ## Variables ##
-set $autolock "i3lock -d -f -I 15 -c 000000"
-set $lock i3lock -d -f -I 15 -c 000000
+set $autolock "i3lock -d -f -I 15 -c 000000 & sleep 1 && xset dpms force off"
+set $lock i3lock -d -f -I 15 -c 000000 & sleep 1 && xset dpms force off
 
 set $suspend systemctl suspend
 set $hibernate systemctl hibernate
@@ -160,14 +161,13 @@ exec --no-startup-id parcellite
 exec --no-startup-id pasystray
 exec --no-startup-id xautolock -time 10 -locker $autolock
 exec --no-startup-id xss-lock -- $lock
-exec --no-startup-id redshift -O 2500
-exec --no-startup-id redshift-gtk
 exec --no-startup-id xrdb -load ~/.Xresources
 exec --no-startup-id xrandr --dpi 140
 exec --no-startup-id xset r rate 300 32 
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id amixer -c 0 set 'Headphone Mic Boost',0 1
 exec --no-startup-id /home/ethan/.screenlayout/layout.sh
+exec --no-startup-id redshift -O 2000
 
 exec --no-startup-id xinput set-prop "DLL075B:01 06CB:76AF Touchpad" "libinput Tapping Enabled" 1
 exec --no-startup-id xinput set-prop "DLL075B:01 06CB:76AF Touchpad" "libinput Tapping Drag Enabled" 0
